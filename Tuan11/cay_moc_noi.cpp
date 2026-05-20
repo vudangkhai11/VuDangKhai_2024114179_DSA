@@ -36,7 +36,16 @@ void duyet_giua(Node* root) { // left -> root -> right
     cout << root->data << " ";
 
     duyet_giua(root->right);
+}
 
+void duyet_sau(Node* root) { // left -> right -> root
+    if (root == nullptr)
+        return;
+    
+    duyet_sau(root->left);
+    duyet_sau(root->right);
+
+    cout << root->data << " ";
 }
 
 int main() {
@@ -49,7 +58,8 @@ int main() {
     root->left->right = tao_Node(5);
 
     //duyet_truoc(root);
-    duyet_giua(root);
+    //duyet_giua(root);
+    //duyet_sau(root);
 
     return 0;
 }

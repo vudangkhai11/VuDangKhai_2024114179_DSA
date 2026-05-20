@@ -86,7 +86,6 @@ int main() {
     root->left->right->left = tao_Node(4);
 
     root->left->right->left->right = tao_Node(5);
-
     ********************************/
 
     //duyet_truoc(root);

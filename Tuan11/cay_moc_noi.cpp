@@ -50,12 +50,44 @@ void duyet_sau(Node* root) { // left -> right -> root
 
 int main() {
     Node* root = tao_Node(1);
-    
+
+    /********* Cay day du **********
     root->left = tao_Node(2);
     root->right = tao_Node(3);
 
     root->left->left = tao_Node(4);
     root->left->right = tao_Node(5);
+
+    ********************************/
+
+    /********* Cay lech trai *******
+
+    root->left = tao_Node(2);
+    root->left->left = tao_Node(3);
+    root->left->left->left = tao_Node(4);
+    root->left->left->left->left = tao_Node(5);
+
+    ********************************/
+
+    /********* Cay lech phai *******
+
+    root->right = tao_Node(2);
+    root->right->right = tao_Node(3);
+    root->right->right->right = tao_Node(4);
+    root->right->right->right->right = tao_Node(5);
+
+    ********************************/
+
+    /********* Cay zigzag   *******
+    root->left = tao_Node(2);
+
+    root->left->right = tao_Node(3);
+
+    root->left->right->left = tao_Node(4);
+
+    root->left->right->left->right = tao_Node(5);
+
+    ********************************/
 
     //duyet_truoc(root);
     //duyet_giua(root);

@@ -17,7 +17,7 @@ Node* tao_Node(int x) {
     return p;
 }
 
-void duyet_truoc(Node* root) {
+void duyet_truoc(Node* root) { // root -> left -> right
     if (root == nullptr)
         return;
 
@@ -25,6 +25,18 @@ void duyet_truoc(Node* root) {
 
     duyet_truoc(root->left);
     duyet_truoc(root->right);
+}
+
+void duyet_giua(Node* root) { // left -> root -> right
+    if (root == nullptr)
+        return;
+    
+    duyet_giua(root->left);
+
+    cout << root->data << " ";
+
+    duyet_giua(root->right);
+
 }
 
 int main() {
@@ -36,7 +48,8 @@ int main() {
     root->left->left = tao_Node(4);
     root->left->right = tao_Node(5);
 
-    duyet_truoc(root);
+    //duyet_truoc(root);
+    duyet_giua(root);
 
     return 0;
 }

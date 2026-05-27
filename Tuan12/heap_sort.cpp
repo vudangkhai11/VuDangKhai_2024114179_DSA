@@ -23,6 +23,8 @@ void heap_sort(int a[], int n) {
     }
     for(int i = n - 1; i >= 0; i--) {
         swap(a[i], a[0]);
+        for(int i = 0; i < 12; i++) cout << a[i] << " ";
+        cout << endl;
         heapify(a, i, 0);
     }
 }
@@ -30,7 +32,7 @@ void heap_sort(int a[], int n) {
 
 int main() {
     int a[] = {11, 10, 32, 106, 38, 78, 203, 16, 84, 17, 39, 15};
-    //heap_sort(a, 12);
+    heap_sort(a, 12);
     for (int i = 5; i >= 0; i--){
         heapify(a, 12, i);
         cout << "lan " << i << ":";

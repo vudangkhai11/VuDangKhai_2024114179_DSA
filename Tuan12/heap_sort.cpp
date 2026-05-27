@@ -17,7 +17,18 @@ void heapify(int a[], int n, int i) {
     }
 }
 
-int main() {
+void heap_sort(int a[], int n) {
+    for(int i = n / 2 - 1; i >= 0; i--) {
+        heapify(a, n, i);
+    }
+    for(int i = n - 1; i >= 0; i--) {
+        swap(a[i], a[0]);
+        heapify(a, i, 0);
+    }
+}
 
+
+int main() {
+    int a[] = {};
     return 0;
 }

@@ -29,6 +29,13 @@ void heap_sort(int a[], int n) {
 
 
 int main() {
-    int a[] = {};
+    int a[] = {11, 10, 32, 106, 38, 78, 203, 16, 84, 17, 39, 15};
+    //heap_sort(a, 12);
+    for (int i = 5; i >= 0; i--){
+        heapify(a, 12, i);
+        cout << "lan " << i << ":";
+        for(int i = 0; i < 12; i++) cout << a[i] << " ";
+        cout << endl;
+    }
     return 0;
 }

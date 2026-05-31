@@ -27,6 +27,17 @@ Node* them_node_BST(Node* goc, SV sv) {
     return goc;
 }
 
+// Tìm và in tất cả sinh viên sinh năm x
+void tim_SV(Node* goc, int x) {
+    if(goc == nullptr) return;
+
+    if(x < goc->data.namSinh) tim_SV(goc->left, x);
+    else if (x > goc->data.namSinh) tim_SV(goc->right, x);
+    else {
+        cout << goc->data.ten << " - " << goc->data.namSinh << endl;
+        tim_SV(goc->right, x);
+    }
+}
 
 
 int main() {

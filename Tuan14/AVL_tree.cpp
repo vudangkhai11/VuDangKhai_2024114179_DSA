@@ -106,6 +106,29 @@ void postOrder(Node* root) {
 }
 
 int main() {
+    int arr[] = {32, 51, 27, 83, 96, 11, 45, 75, 66};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    Node* root = nullptr;
+
+    cout << "Chen cac phan tu: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+        root = chen_giatri(root, arr[i]);
+    }
+    cout << endl;
+
+    cout << "\nDuyet In-Order  (trai - goc - phai): ";
+    inOrder(root);
+    cout << endl;
+
+    cout << "Duyet Pre-Order (goc - trai - phai): ";
+    preOrder(root);
+    cout << endl;
+
+    cout << "Duyet Post-Order(trai - phai - goc): ";
+    postOrder(root);
+    cout << endl;
 
     return 0;
 }

@@ -81,6 +81,30 @@ Node* chen_giatri(Node* node, int key) {
     return node;
 }
 
+void inOrder(Node* root) {
+    if (root) {
+        inOrder(root->left);
+        cout << root->key << " ";
+        inOrder(root->right);
+    }
+}
+
+void preOrder(Node* root) {
+    if (root) {
+        cout << root->key << " ";
+        preOrder(root->left);
+        preOrder(root->right);
+    }
+}
+
+void postOrder(Node* root) {
+    if (root) {
+        postOrder(root->left);
+        postOrder(root->right);
+        cout << root->key << " ";
+    }
+}
+
 int main() {
 
     return 0;

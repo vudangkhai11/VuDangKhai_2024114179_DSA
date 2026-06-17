@@ -52,7 +52,7 @@ void BFS(int a[][N], int start)
 }
 
 int main() {
-        int a[N][N] = {0};
+    int a[N][N] = {0};
 
     them_Canh(a,0,1);
     them_Canh(a,0,2);
@@ -82,6 +82,9 @@ int main() {
 
         cout << endl;
     }
+
+    cout << "\nDuyet BFS tu Ha Noi:\n";
+    BFS(a, 0);   
 
     return 0;
 }

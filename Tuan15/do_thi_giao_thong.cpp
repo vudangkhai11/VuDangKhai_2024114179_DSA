@@ -1,4 +1,5 @@
 #include<iostream>
+#include<queue>
 using namespace std;
 
 const int N = 11;
@@ -22,6 +23,32 @@ void them_Canh(int a[][N], int u, int v)
 {
     a[u][v] = 1;
     a[v][u] = 1;
+}
+
+void BFS(int a[][N], int start)
+{
+    bool visited[N] = {false};
+    queue<int> q;
+
+    visited[start] = true;
+    q.push(start);
+    
+    while(!q.empty())
+    {
+        int u = q.front();
+        q.pop();
+
+        cout << city[u] << endl;
+
+        for(int v = 0; v < N; v++)
+        {
+            if(a[u][v] == 1 && !visited[v])
+            {
+                visited[v] = true;
+                q.push(v);
+            }            
+        }
+    }
 }
 
 int main() {

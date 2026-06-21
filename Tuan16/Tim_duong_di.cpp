@@ -107,8 +107,68 @@ void in_DuongDi(int parent[], int start, int dest)
 
     in_DuongDi(parent, start, parent[dest]);
 
-    cout << " -> "
-         << city[dest];
+    cout << " -> " << city[dest];
+}
+
+void Dijkstra(int start, int dest)
+{
+    int dist[N];
+    bool visited[N];
+    int parent[N];
+
+    for(int i=0;i<N;i++)
+    {
+        dist[i] = INF;
+        visited[i] = false;
+        parent[i] = -1;
+    }
+
+    dist[start] = 0;
+
+    for(int i=0;i<N;i++)
+    {
+        int u = -1;
+        int minDist = INF;
+
+        for(int j=0;j<N;j++)
+        {
+            if(!visited[j] &&
+               dist[j] < minDist)
+            {
+                minDist = dist[j];
+                u = j;
+            }
+        }
+
+        if(u == -1)
+            break;
+
+        visited[u] = true;
+
+        Node* p = head[u];
+
+        while(p != NULL)
+        {
+            int v = p->vertex;
+            int w = p->weight;
+
+            if(dist[u] + w < dist[v])
+            {
+                dist[v] = dist[u] + w;
+                parent[v] = u;
+            }
+
+            p = p->next;
+        }
+    }
+
+    cout << "\nKhoang cach ngan nhat: " << dist[dest] << " km\n";
+
+    cout << "Duong di ngan nhat:\n";
+
+    in_DuongDi(parent, start, dest);
+
+    cout << endl;
 }
 
 int main() {

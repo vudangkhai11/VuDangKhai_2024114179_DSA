@@ -120,24 +120,24 @@ void BFS(int start)
 }
 
 int main() {
-    them_Canh(0,1,1);
-    them_Canh(0,2,1);
-    them_Canh(0,3,1);
-    them_Canh(0,5,1);
-    them_Canh(0,9,1);
-    them_Canh(0,10,1);
+    them_Canh(0,1,45);    // Ha Noi - Son Tay
+    them_Canh(0,2,75);    // Ha Noi - Hoa Binh
+    them_Canh(0,3,60);    // Ha Noi - Phu Ly
+    them_Canh(0,5,58);    // Ha Noi - Hai Duong
+    them_Canh(0,9,30);    // Ha Noi - Bac Ninh
+    them_Canh(0,10,80);   // Ha Noi - Thai Nguyen
 
-    them_Canh(3,4,1);
-    them_Canh(4,5,1);
+    them_Canh(3,4,35);    // Phu Ly - Hung Yen
+    them_Canh(4,5,50);    // Hung Yen - Hai Duong
 
-    them_Canh(5,6,1);
+    them_Canh(5,6,45);    // Hai Duong - Hai Phong
 
-    them_Canh(6,7,1);
+    them_Canh(6,7,28);    // Hai Phong - Uong Bi
 
-    them_Canh(7,8,1);
-    them_Canh(8,9,1);
+    them_Canh(7,8,40);    // Uong Bi - Bac Giang
+    them_Canh(8,9,22);    // Bac Giang - Bac Ninh
 
-    them_Canh(9,7,1);
+    them_Canh(9,7,65);    // Bac Ninh - Uong Bi
 
     cout << "=== Danh sach ke ===\n";
     hienThiDSKe();

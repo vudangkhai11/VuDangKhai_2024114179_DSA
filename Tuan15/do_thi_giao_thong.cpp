@@ -113,7 +113,10 @@ int main() {
     }
 
     cout << "\nDuyet BFS tu Ha Noi:\n";
-    BFS(a, 0);    
+    BFS(a, 0);
+
+    cout << "\nDuyet DFS tu Ha Noi:\n";
+    DFS(a, 0);
 
     return 0;
 }

@@ -1,5 +1,6 @@
 #include<iostream>
 #include<queue>
+#include<stack>
 using namespace std;
 
 const int N = 11;
@@ -51,6 +52,34 @@ void BFS(int a[][N], int start)
     }
 }
 
+void DFS(int a[][N], int start)
+{
+    bool visited[N] = {false};
+    stack<int> st;
+
+    st.push(start);
+
+    while(!st.empty())
+    {
+        int u = st.top();
+        st.pop();
+
+        if(!visited[u])
+        {
+            visited[u] = true;
+            cout << city[u] << endl;
+
+            for(int v = N - 1; v >= 0; v--)
+            {
+                if(a[u][v] == 1 && !visited[v])
+                {
+                    st.push(v);
+                }
+            }
+        }
+    }
+}
+
 int main() {
     int a[N][N] = {0};
 
@@ -84,7 +113,7 @@ int main() {
     }
 
     cout << "\nDuyet BFS tu Ha Noi:\n";
-    BFS(a, 0);   
+    BFS(a, 0);    
 
     return 0;
 }

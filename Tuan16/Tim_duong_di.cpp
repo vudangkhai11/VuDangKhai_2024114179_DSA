@@ -212,5 +212,8 @@ int main() {
         cout << "Khong ton tai duong di\n";
     }
 
+    cout << "\n===== DIJKSTRA =====\n";
+    Dijkstra(0,7);
+
     return 0;
 }

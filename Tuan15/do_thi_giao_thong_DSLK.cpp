@@ -120,6 +120,33 @@ void BFS(int start)
 }
 
 int main() {
-    
+    them_Canh(0,1,1);
+    them_Canh(0,2,1);
+    them_Canh(0,3,1);
+    them_Canh(0,5,1);
+    them_Canh(0,9,1);
+    them_Canh(0,10,1);
+
+    them_Canh(3,4,1);
+    them_Canh(4,5,1);
+
+    them_Canh(5,6,1);
+
+    them_Canh(6,7,1);
+
+    them_Canh(7,8,1);
+    them_Canh(8,9,1);
+
+    them_Canh(9,7,1);
+
+    cout << "=== Danh sach ke ===\n";
+    hienThiDSKe();
+
+    cout << "\n=== DFS tu Ha Noi ===\n";
+    DFS(0);
+
+    cout << "\n=== BFS tu Ha Noi ===\n";
+    BFS(0);
+
     return 0;
 }

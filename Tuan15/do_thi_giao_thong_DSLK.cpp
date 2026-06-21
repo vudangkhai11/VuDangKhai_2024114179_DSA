@@ -1,4 +1,5 @@
 #include<iostream>
+#include<queue>
 using namespace std;
 
 const int N = 11;
@@ -42,6 +43,81 @@ void them_Canh(int u, int v, int w)
     head[v] = p;
 }
 
+void hienThiDSKe()
+{
+    for(int i = 0; i < N; i++)
+    {
+        cout << city[i] << " : ";
+
+        Node *p = head[i];
+        while(p != NULL)
+        {
+            cout << city[p->vertex]
+                 << "(" << p->weight << ") -> ";
+            p = p->next;
+        }
+
+        cout << "NULL\n";
+    }
+}
+
+// DFS đệ quy
+void DFS_DeQuy(int u, bool visited[])
+{
+    visited[u] = true;
+    cout << city[u] << endl;
+
+    Node *p = head[u];
+
+    while(p != NULL)
+    {
+        int v = p->vertex;
+
+        if(!visited[v])
+            DFS_DeQuy(v, visited);
+
+        p = p->next;
+    }
+}
+
+void DFS(int start)
+{
+    bool visited[N] = {false};
+    DFS_DeQuy(start, visited);
+}
+
+// BFS
+void BFS(int start)
+{
+    bool visited[N] = {false};
+    queue<int> q;
+
+    visited[start] = true;
+    q.push(start);
+
+    while(!q.empty())
+    {
+        int u = q.front();
+        q.pop();
+
+        cout << city[u] << endl;
+
+        Node *p = head[u];
+
+        while(p != NULL)
+        {
+            int v = p->vertex;
+
+            if(!visited[v])
+            {
+                visited[v] = true;
+                q.push(v);
+            }
+
+            p = p->next;
+        }
+    }
+}
 
 int main() {
     

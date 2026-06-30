@@ -15,6 +15,25 @@ void taodothi() {
         }
     }
 }
+
+void themcanh(int u, int v, int trongSo) {
+    matran[u][v] = trongSo;
+    matran[v][u] = trongSo;
+}
+
+// Ham in Ma tran dinh ke 
+void inmatran(int maTran[11][11]) {
+    for (int i =0; i < 11; i++) cout << i << "\t";
+    cout << "\n";
+    for (int i= 0; i < 11; i++) {
+        cout << " " << i << " | ";
+        for (int j = 0; j < 11; j++) {
+            if (maTran[i][j]== kocoduongdi || i== j) cout << "0\t"; // In 0 neu khong co canh noi
+            else cout << maTran[i][j] << "\t";                   // In ra trong so
+        }
+        cout << "\n";
+    }
+}
 //Dijkstra
 void dijkstra(int batDau, int ketThuc) {
     int khoangcach[11];
@@ -60,6 +79,47 @@ void dijkstra(int batDau, int ketThuc) {
     }
     cout << "\n";
 }
+
+void Prim(int dinhbatdau) {
+    int matranMST[11][11];
+    int khoangcach[11], cha[11];
+    bool dathem[11] = { false };
+
+    // Khoi tao ma tran cay khung rong
+    for (int i = 0; i < 11; i++)
+        for (int j = 0; j < 11; j++) matranMST[i][j] = kocoduongdi;
+
+    for (int i = 0; i < 11; i++) khoangcach[i] = kocoduongdi;
+    khoangcach[dinhbatdau] = 0;
+    cha[dinhbatdau] = -1;
+
+    for (int i = 0; i < 10; i++) {
+        int min = kocoduongdi, u = -1;
+        for (int v = 0; v < 11; v++) {
+            if (!dathem[v] && khoangcach[v] < min) {
+                min = khoangcach[v];
+                u = v;
+            }
+        }
+
+        dathem[u] = true;
+        // Ghi canh vao ma tran mst
+        if (cha[u] != -1) {
+            matranMST[u][cha[u]] = matran[u][cha[u]];
+            matranMST[cha[u]][u] = matran[u][cha[u]];
+        }
+
+        for (int v = 0; v < 11; v++) {
+            if (matran[u][v] != kocoduongdi && !dathem[v] && matran[u][v] < khoangcach[v]) {
+                cha[v] = u;
+                khoangcach[v] = matran[u][v];
+            }
+        }
+    }
+
+    inmatran(matranMST);
+}
+
 int main() {
 
     return 0;

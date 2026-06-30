@@ -93,6 +93,26 @@ public:
     }
 };
 int main() {
+    // Tạo một cây với kích thước ban đầu là 7 phần tử
+    CayTuanTu t(7);
+
+    t.datNutGoc('A');            // Gốc ở vị trí 0
+    t.datConTrai('B', 0);        // Con trái của A ở vị trí 1
+    t.datConPhai('C', 0);        // Con phải của A ở vị trí 2
+    
+    t.datConTrai('D', 1);        // Con trái của B ở vị trí 3
+    t.datConPhai('E', 1);        // Con phải của B ở vị trí 4
+    
+    t.datConPhai('F', 2);        // Con phải của C ở vị trí 6 (vị trí 5 để trống)
+
+    // In cấu trúc mảng lưu trữ tuần tự
+    t.inMangCay(); 
+    // Kết quả: A B C D E - F
+
+    // Duyệt cây theo thứ tự trước (Tiền thứ tự)
+    cout << "Duyet theo thu tu truoc (Pre-order): ";
+    t.duyetThuTuTruoc(0); 
+    cout << endl;
 
     return 0;
 }
